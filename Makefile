@@ -3,3 +3,6 @@
 
 publish:
 	nmp publish --run-dry
+
+lint:
+	npx eslint .
