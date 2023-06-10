@@ -26,8 +26,8 @@ const gendiff = (filePath1, filePath2) => {
     }
     return acc;
   }, {});
-  const strObj = JSON.stringify(difference, null, '  ');
-  return (strObj.replace(/"/gi, '')).replace(/,/gi, '');
+  const convertObjInString = JSON.stringify(difference, null, '  ');
+  return convertObjInString.replace(/"/gi, '').replace(/,/gi, '');
 };
 
 export default gendiff;
