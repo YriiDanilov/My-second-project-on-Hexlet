@@ -13,7 +13,7 @@ const gendiff = (filePath1, filePath2) => {
   const firstObj = getParseData(filePath1);
   const secondObj = getParseData(filePath2);
   const keys = getSortedKeys(firstObj, secondObj);
-  const difference = keys.reduce((acc, key) => {
+  const conditions = keys.reduce((acc, key) => {
     if (!_.has(firstObj, key)) {
       acc[`+ ${key}`] = secondObj[key];
     } else if (!_.has(firstObj, key)) {
@@ -26,7 +26,7 @@ const gendiff = (filePath1, filePath2) => {
     }
     return acc;
   }, {});
-  const convertObjInString = JSON.stringify(difference, null, '  ');
+  const convertObjInString = JSON.stringify(conditions, null, '  ');
   return convertObjInString.replace(/"/gi, '').replace(/,/gi, '');
 };
 
