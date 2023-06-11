@@ -9,7 +9,7 @@
 
 #### Возможности утилиты:
 
-- [х] Поддержка разных входных форматов: yaml, json
+- [x] Поддержка разных входных форматов: yaml, json
 - [x] Генерация отчета в виде plain text, stylish и json
 
 ### Требования: 
@@ -18,13 +18,13 @@
 
 ### Установка: 
 
-1. git clone https://github.com/YriiDanilov/frontend-project-46.git
+1. Клонируйте репозиторий с помощью следующей команды:
 
 ```
 git clone https://github.com/YriiDanilov/frontend-project-46.git
 
 ```
-2. 
+2. Выполните команду: 
 
 ```
 sudo npm link
