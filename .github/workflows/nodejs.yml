@@ -1,0 +1,33 @@
+name: Node CI
+
+on: 
+  - push
+
+jobs:
+  test: 
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Get code
+        uses: action/checkout@v3
+      - name: Install version Node
+        uses: action/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Install dependencies
+        run: make install
+      - name: Lint application
+        run: make lint    
+      - name: Test application
+        run: make test
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.SECRET_FOR_FP46 }}
+        with:
+          coverageCommand: make test-coverage
