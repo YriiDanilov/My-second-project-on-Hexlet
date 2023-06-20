@@ -1,5 +1,5 @@
-﻿import getParseData from '../src/readfile.js';
-import _ from 'lodash';
+﻿import _ from 'lodash';
+import getParseData from './readfile.js';
 
 const getSortedKeys = (obj1, obj2) => {
   const keys1 = Object.keys(obj1);
@@ -7,7 +7,7 @@ const getSortedKeys = (obj1, obj2) => {
   const unionKeys = _.union(keys1, keys2);
   const sortedKeys = _.sortBy(unionKeys);
   return sortedKeys;
-}
+};
 
 const gendiff = (filePath1, filePath2) => {
   const firstObj = getParseData(filePath1);
@@ -16,12 +16,15 @@ const gendiff = (filePath1, filePath2) => {
   const conditions = keys.reduce((acc, key) => {
     if (!_.has(firstObj, key)) {
       acc[`+ ${key}`] = secondObj[key];
-    } else if (!_.has(firstObj, key)) {
+    }
+    if (!_.has(firstObj, key)) {
       acc[`- ${key}`] = firstObj[key];
-    } else if (firstObj[key] !== secondObj[key]) {
+    }
+    if (firstObj[key] !== secondObj[key]) {
       acc[`- ${key}`] = firstObj[key];
       acc[`+ ${key}`] = secondObj[key];
-    } else if (firstObj[key] === secondObj[key]) {
+    }
+    if (firstObj[key] === secondObj[key]) {
       acc[`  ${key}`] = firstObj[key];
     }
     return acc;

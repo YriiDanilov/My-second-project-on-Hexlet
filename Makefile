@@ -1,8 +1,17 @@
 ﻿install:
 	nmp ci
 
-publish:
-	nmp publish --run-dry
-
 lint:
 	npx eslint .
+
+gendiff:
+	node bin/gendiff.js
+
+publish:
+	nmp publish --dry-run
+
+test:
+	npm test
+
+test-coverage:
+	npm test -- --coverage --coverageProvider=v8
