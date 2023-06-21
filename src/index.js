@@ -1,36 +1,12 @@
-﻿import _ from 'lodash';
-import getParseData from './readfile.js';
-
-const getSortedKeys = (obj1, obj2) => {
-  const keys1 = Object.keys(obj1);
-  const keys2 = Object.keys(obj2);
-  const unionKeys = _.union(keys1, keys2);
-  const sortedKeys = _.sortBy(unionKeys);
-  return sortedKeys;
-};
+﻿import compareFiles from './comparefiles.js';
+import { readFile, dataParse } from './readfile.js';
 
 const gendiff = (filePath1, filePath2) => {
-  const firstObj = getParseData(filePath1);
-  const secondObj = getParseData(filePath2);
-  const keys = getSortedKeys(firstObj, secondObj);
-  const conditions = keys.reduce((acc, key) => {
-    if (!_.has(firstObj, key)) {
-      acc[`+ ${key}`] = secondObj[key];
-    }
-    if (!_.has(firstObj, key)) {
-      acc[`- ${key}`] = firstObj[key];
-    }
-    if (firstObj[key] !== secondObj[key]) {
-      acc[`- ${key}`] = firstObj[key];
-      acc[`+ ${key}`] = secondObj[key];
-    }
-    if (firstObj[key] === secondObj[key]) {
-      acc[`  ${key}`] = firstObj[key];
-    }
-    return acc;
-  }, {});
-  const convertObjInString = JSON.stringify(conditions, null, '  ');
-  return convertObjInString.replace(/"/gi, '').replace(/,/gi, '');
+  const data1 = readFile(filePath1);
+  const data2 = readFile(filePath2);
+  const parseData1 = dataParse(data1);
+  const parseData2 = dataParse(data2);
+  return compareFiles(parseData1, parseData2);
 };
 
 export default gendiff;
