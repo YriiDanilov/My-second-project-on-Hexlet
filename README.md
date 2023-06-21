@@ -2,7 +2,7 @@
 [![Actions Status](https://github.com/YriiDanilov/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/YriiDanilov/frontend-project-46/actions)
 
 ### Github Action status:
-[![Action Status](https://github.com/YriiDanilov/frontend-project-46/actions/workflows/nodejs/badge.svg)](https://github.com/YriiDanilov/frontend-project-46/actions)
+[![Action Status](https://github.com/YriiDanilov/frontend-project-46/actions/workflows/nodejs.yml/badge.svg)](https://github.com/YriiDanilov/frontend-project-46/actions)
 
 ### Maintainability Badge:
 [![Maintainability](https://api.codeclimate.com/v1/badges/34098306c90c24446481/maintainability)](https://codeclimate.com/github/YriiDanilov/frontend-project-46/maintainability)
@@ -10,36 +10,36 @@
 ### Test coverage: 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/34098306c90c24446481/test_coverage)](https://codeclimate.com/github/YriiDanilov/frontend-project-46/test_coverage)
 
-# Вычислитель отличий
+# п▓я▀я┤п╦я│п╩п╦я┌п╣п╩я▄ п╬я┌п╩п╦я┤п╦п╧
 
-### Описание 
+### п·п©п╦я│п╟п╫п╦п╣
 
-**Вычислитель отличий** ? программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменений в конфигурационных файлах.
+**п▓я▀я┤п╦я│п╩п╦я┌п╣п╩я▄ п╬я┌п╩п╦я┤п╦п╧** - п©я─п╬пЁя─п╟п╪п╪п╟, п╬п©я─п╣п╢п╣п╩я▐я▌я┴п╟я▐ я─п╟п╥п╫п╦я├я┐ п╪п╣п╤п╢я┐ п╢п╡я┐п╪я▐ я│я┌я─я┐п╨я┌я┐я─п╟п╪п╦ п╢п╟п╫п╫я▀я┘. п╜я┌п╬ п©п╬п©я┐п╩я▐я─п╫п╟я▐ п╥п╟п╢п╟я┤п╟, п╢п╩я▐ я─п╣я┬п╣п╫п╦я▐ п╨п╬я┌п╬я─п╬п╧ я│я┐я┴п╣я│я┌п╡я┐п╣я┌ п╪п╫п╬п╤п╣я│я┌п╡п╬ п╬п╫п╩п╟п╧п╫ я│п╣я─п╡п╦я│п╬п╡, п╫п╟п©я─п╦п╪п╣я─ http://www.jsondiff.com/. п÷п╬п╢п╬п╠п╫я▀п╧ п╪п╣я┘п╟п╫п╦п╥п╪ п╦я│п©п╬п╩я▄п╥я┐п╣я┌я│я▐ п©я─п╦ п╡я▀п╡п╬п╢п╣ я┌п╣я│я┌п╬п╡ п╦п╩п╦ п©я─п╦ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╬п╪ п╬я┌я│п╩п╣п╤п╦п╡п╟п╫п╦п╦ п╦п╥п╪п╣п╫п╣п╫п╦п╧ п╡ п╨п╬п╫я└п╦пЁя┐я─п╟я├п╦п╬п╫п╫я▀я┘ я└п╟п╧п╩п╟я┘.
 
-#### Возможности утилиты:
+#### п▓п╬п╥п╪п╬п╤п╫п╬я│я┌п╦ я┐я┌п╦п╩п╦я┌я▀:
 
-- [x] Поддержка разных входных форматов: yaml, json
-- [x] Генерация отчета в виде plain text, stylish и json
+- [x] п÷п╬п╢п╢п╣я─п╤п╨п╟ я─п╟п╥п╫я▀я┘ п╡я┘п╬п╢п╫я▀я┘ я└п╬я─п╪п╟я┌п╬п╡: yaml, json
+- [x] п⌠п╣п╫п╣я─п╟я├п╦я▐ п╬я┌я┤п╣я┌п╟ п╡ п╡п╦п╢п╣ plain text, stylish п╦ json
 
-### Требования: 
+### п╒я─п╣п╠п╬п╡п╟п╫п╦я▐: 
 
-Требуется [node.js](https://nodejs.org/en) версия 13.2.0 и выше (проверить версию установленной node возможно командой в терминале node -v)
+п╒я─п╣п╠я┐п╣я┌я│я▐ [node.js](https://nodejs.org/en) п╡п╣я─я│п╦я▐ 13.2.0 п╦ п╡я▀я┬п╣ (п©я─п╬п╡п╣я─п╦я┌я▄ п╡п╣я─я│п╦я▌ я┐я│я┌п╟п╫п╬п╡п╩п╣п╫п╫п╬п╧ node п╡п╬п╥п╪п╬п╤п╫п╬ п╨п╬п╪п╟п╫п╢п╬п╧ п╡ я┌п╣я─п╪п╦п╫п╟п╩п╣ node -v)
 
-### Установка: 
+### пёя│я┌п╟п╫п╬п╡п╨п╟:  
 
-1. Клонируйте репозиторий с помощью следующей команды:
+1. п п╩п╬п╫п╦я─я┐п╧я┌п╣ я─п╣п©п╬п╥п╦я┌п╬я─п╦п╧ я│ п©п╬п╪п╬я┴я▄я▌ я│п╩п╣п╢я┐я▌я┴п╣п╧ п╨п╬п╪п╟п╫п╢я▀:
 
 ```
 git clone https://github.com/YriiDanilov/frontend-project-46.git
 
 ```
-2. Выполните команду: 
+2. п▓я▀п©п╬п╩п╫п╦я┌п╣ п╨п╬п╪п╟п╫п╢я┐: 
 
 ```
 sudo npm link
 
 ```
 
-Пример работы с плоскими файлами :
+п÷я─п╦п╪п╣я─ я─п╟п╠п╬я┌я▀ я│ п©п╩п╬я│п╨п╦п╪п╦ я└п╟п╧п╩п╟п╪п╦ :
 
 [![asciicast](https://asciinema.org/a/BrmWsF0yYPWPbh88fE51XikoE.svg)](https://asciinema.org/a/BrmWsF0yYPWPbh88fE51XikoE)
