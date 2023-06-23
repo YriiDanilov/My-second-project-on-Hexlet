@@ -1,5 +1,5 @@
-﻿install:
-	nmp ci
+install:
+	npm ci
 
 lint:
 	npx eslint .
