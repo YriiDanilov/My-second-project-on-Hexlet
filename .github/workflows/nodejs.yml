@@ -3,19 +3,22 @@ name: Node CI
 on: 
   - push
 
+env:
+  CI: true
+
 jobs:
-  test: 
+  build: 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x]
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [18.x]
+      
     steps:
       - name: Get code
-        uses: action/checkout@v3
+        uses: actions/checkout@v3
       - name: Install version Node
-        uses: action/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
@@ -26,8 +29,9 @@ jobs:
       - name: Test application
         run: make test
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v3.0.0
+        uses: paambaati/codeclimate-action@v4.0.0
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.SECRET_FOR_FP46 }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: make test-coverage
+          debug: true
