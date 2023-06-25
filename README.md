@@ -42,4 +42,4 @@ sudo npm link
 
 Пример работы с плоскими файлами :
 
-[![asciicast](https://asciinema.org/a/BrmWsF0yYPWPbh88fE51XikoE.svg)](https://asciinema.org/a/BrmWsF0yYPWPbh88fE51XikoE)
+[![asciicast](https://asciinema.org/a/593064.svg)](https://asciinema.org/a/593064)
