@@ -40,6 +40,10 @@ sudo npm link
 
 ```
 
-Пример работы с плоскими файлами :
+Пример работы с плоскими JSON файлами :
 
 [![asciicast](https://asciinema.org/a/593064.svg)](https://asciinema.org/a/593064)
+
+Пример работы с плоскими YAML файлами :
+
+[![asciicast](https://asciinema.org/a/593282.svg)](https://asciinema.org/a/593282)

@@ -10,10 +10,13 @@ const __dirname = dirname(__filename); // имя каталога текущег
 const getFixturePath = (filepath) => path.join(__dirname, '..', '__fixtures__', filepath);
 const readFile = (filepath) => readFileSync(getFixturePath(filepath), 'utf-8');
 
-const filePath1 = getFixturePath('filepath1.json');
-const filepath2 = getFixturePath('filepath2.json');
+const fileJsonPath1 = getFixturePath('filepath1.json');
+const fileJsonpath2 = getFixturePath('filepath2.json');
+const fileYamlPath1 = getFixturePath('filepath1.yaml');
+const fileYamlpath2 = getFixturePath('filepath2.yaml');
 const expected = readFile('expect.txt');
 
 test('gendiff test', () => {
-  expect(gendiff(filePath1, filepath2)).toEqual(expected);
+  expect(gendiff(fileJsonPath1, fileJsonpath2)).toEqual(expected);
+  expect(gendiff(fileYamlPath1, fileYamlpath2)).toEqual(expected);
 });
