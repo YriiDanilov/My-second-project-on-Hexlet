@@ -8,26 +8,28 @@ const getSortedKeys = (obj1, obj2) => {
   return sortedKeys;
 };
 
-const compareFiles = (filePath1, filePath2) => {
-  const keys = getSortedKeys(filePath1, filePath2);
-  const conditions = keys.reduce((acc, key) => {
-    if (!_.has(filePath1, key)) {
-      acc[`+ ${key}`] = filePath2[key];
+const compareFiles = (data1, data2) => {
+  const keys = getSortedKeys(data1, data2);
+  const conditions = keys.map((key) => {
+
+    const value1 = data1[key];
+    const value2 = data2[key];
+
+    if (_.has(data1, key) && !_.has(data2, key)) {
+      return { key, value1, status: 'deleted' };
     }
-    if (!_.has(filePath1, key)) {
-      acc[`- ${key}`] = filePath2[key];
+    if (!_.has(data1, key) && _.has(data2, key)) {
+      return { key, value2, status: 'added' }
     }
-    if (filePath1[key] !== filePath2[key]) {
-      acc[`- ${key}`] = filePath1[key];
-      acc[`+ ${key}`] = filePath2[key];
+    if (_.isObject(value1) && _.isObject(value2)) {
+      return { key, children: compareFiles(value1, value2), status: 'nested' };
     }
-    if (filePath1[key] === filePath2[key]) {
-      acc[`  ${key}`] = filePath1[key];
+    if (_.isEqual(value1, value2)) {
+      return { key, value1, status: 'unchanged' };
     }
-    return acc;
-  }, {});
-  const convertObjInString = JSON.stringify(conditions, null, '  ');
-  return convertObjInString.replace(/"/gi, '').replace(/,/gi, '');
+    return { key, value1, value2, status: 'changed' };
+  });
+  return conditions;
 };
 
 export default compareFiles;

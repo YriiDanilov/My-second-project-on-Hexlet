@@ -39,6 +39,9 @@ git clone https://github.com/YriiDanilov/frontend-project-46.git
 sudo npm link
 
 ```
+Вызов справочной информации 
+
+[![asciicast](https://asciinema.org/a/594504.svg)](https://asciinema.org/a/594504)
 
 Пример работы с плоскими JSON файлами :
 
@@ -47,3 +50,7 @@ sudo npm link
 Пример работы с плоскими YAML файлами :
 
 [![asciicast](https://asciinema.org/a/593282.svg)](https://asciinema.org/a/593282)
+
+Пример работы с вложенными объктами :
+
+[![asciicast](https://asciinema.org/a/594507.svg)](https://asciinema.org/a/594507)
