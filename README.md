@@ -54,3 +54,12 @@ sudo npm link
 Пример работы с вложенными объктами :
 
 [![asciicast](https://asciinema.org/a/594507.svg)](https://asciinema.org/a/594507)
+
+Пример работы формата Plain: 
+
+[![asciicast](https://asciinema.org/a/595517.svg)](https://asciinema.org/a/595517)
+
+Вывод в формате JSON:
+
+[![asciicast](https://asciinema.org/a/595530.svg)](https://asciinema.org/a/595530)
+

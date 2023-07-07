@@ -19,7 +19,7 @@ const stringify = (data, depth = 1) => {
   return result;
 };
 
-const stylish = (tree) => {
+const getStylish = (tree) => {
   const iter = (currentValue, depth = 1) => {
     const currentIndent = getIdent(depth);
     const bracketIndent = getBrackeIndent(depth);
@@ -39,7 +39,7 @@ const stylish = (tree) => {
             `${currentIndent}+ ${node.key}: ${stringify(node.value2, depth + 1)}`,
           ];
         default:
-          console.log(`Unknown type ${node.status}.`);
+          throw new Error(`Unknown type ${node.status}.`);
       }
     })
     return [`{`, ...lines, `${bracketIndent}}`].join('\n');
@@ -47,4 +47,4 @@ const stylish = (tree) => {
   return iter(tree);
 };
 
-export default stylish;
+export default getStylish;
