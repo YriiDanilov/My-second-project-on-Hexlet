@@ -12,7 +12,7 @@ const getString = (data) => String(data).trim();
 const getFixturePath = (filepath) => path.join(__dirname, '..', '__fixtures__', filepath);
 const readFile = (filepath) => readFileSync(getFixturePath(filepath), 'utf-8');
 
-const files = [['filepath1.json', 'filepath2.json'], ['filepath1.yaml', 'filepath2.yml'], ['filepath1.yml', 'filepath2.yml']];
+const files = [['filepath1.json', 'filepath2.json'], ['filepath1.yaml', 'filepath2.yaml'], ['filepath1.yml', 'filepath2.yml']];
 
 test.each(files)('gendiff for "stylish" format', (file1, file2) => {
   const filepath1 = getFixturePath(file1);
