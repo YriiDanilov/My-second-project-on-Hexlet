@@ -21,7 +21,7 @@ const gendiff = (filePath1, filePath2, format = 'stylish') => {
 
   const parseData1 = dataParse(data1, ext1);
   const parseData2 = dataParse(data2, ext2);
-  const diff = compareFiles(parseData1, parseData2)
+  const diff = compareFiles(parseData1, parseData2);
   return choiceFormat(diff, format);
 };
 

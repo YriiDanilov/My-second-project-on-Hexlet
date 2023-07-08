@@ -1,13 +1,13 @@
 import _ from 'lodash';
 
 const getValue = (value) => {
-  if (typeof value === 'string') return `'${value}'`
+  if (typeof value === 'string') return `'${value}'`;
   return _.isObject(value) ? '[complex value]' : value;
 };
 
 const getPlain = (data) => {
-  const iter = (data, path) => {
-    const result = data
+  const iter = (value, path) => {
+    const result = value
       .filter((node) => node.status !== 'unchanged')
       .map((node) => {
         const fullPath = (path === '') ? `${node.key}` : `${path}.${node.key}`;
@@ -22,11 +22,11 @@ const getPlain = (data) => {
           case 'changed':
             return `Property '${fullPath}' was updated. From ${getValue(node.value1)} to ${getValue(node.value2)}`;
           default:
-            throw new Error(`Unknown type: ${node.status}.`)
+            throw new Error(`Unknown type: ${node.status}.`);
         }
-      })
+      });
     return [...result].join('\n');
-  }
+  };
   return iter(data, '');
 };
 
