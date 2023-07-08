@@ -25,8 +25,8 @@ const compareFiles = (data1, data2) => {
     if (_.isEqual(value1, value2)) {
       return { key, value1, status: 'unchanged' };
     }
-    return { 
-      key, value1, value2, status: 'changed' 
+    return {
+      key, value1, value2, status: 'changed',
     };
   });
   return conditions;
