@@ -39,7 +39,7 @@ const getStylish = (tree) => {
           throw new Error(`Unknown type ${node.status}.`);
       }
     });
-    return [`{`, ...lines, `${bracketIndent}}`].join('\n');
+    return ['{', ...lines, `${bracketIndent}}`].join('\n');
   };
   return iter(tree);
 };
