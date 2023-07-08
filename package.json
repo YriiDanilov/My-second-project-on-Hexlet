@@ -2,16 +2,24 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "difference calculator",
+  "type": "module",
   "main": "src/index.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
-  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YriiDanilov/frontend-project-46"
+  },
   "scripts": {
     "test": "npx jest"
   },
   "author": "Yrii Danilov",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YriiDanilov/frontend-project-46/issues"
+  },
+  "homepage": "https://github.com/YriiDanilov/frontend-project-46#readme",
   "dependencies": {
     "@jest/globals": "^29.5.0",
     "@types/jest": "^29.5.2",
