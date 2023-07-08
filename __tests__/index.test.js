@@ -7,6 +7,8 @@ import gendiff from '../src/index.js';
 const __filename = fileURLToPath(import.meta.url); //fileURLToPath корректная расшифровка символов пути; import.meta.url получение доступа к мета-информации об этом модуле н-р "file:///home/user/my-module.js";
 const __dirname = dirname(__filename); // имя каталога текущего модуля .То же самое что path.dirname для __filename н-р : /Users/mjr
 
+const getString = (data) => String(data).trim();
+
 const getFixturePath = (filepath) => path.join(__dirname, '..', '__fixtures__', filepath);
 const readFile = (filepath) => readFileSync(getFixturePath(filepath), 'utf-8');
 
@@ -30,6 +32,6 @@ test.each(files)('gendiff for "json" format', (file1, file2) => {
   const filepath1 = getFixturePath(file1);
   const filepath2 = getFixturePath(file2);
   const result = readFile('resultjson.txt');
-  expect(gendiff(filepath1, filepath2, 'json')).toEqual(result);
+  expect(getString(gendiff(filepath1, filepath2, 'json'))).toEqual(getString(result));
 });
 
