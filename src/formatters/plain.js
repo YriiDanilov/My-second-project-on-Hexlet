@@ -11,7 +11,8 @@ const getPlain = (data) => {
       .filter((node) => node.status !== 'unchanged')
       .map((node) => {
         const {
-          key, children, status, value1, value2 } = node;
+          key, children, status, value1, value2,
+        } = node;
         const fullPath = (path === '') ? `${key}` : `${path}.${key}`;
         switch (status) {
           case 'nested':
