@@ -21,7 +21,8 @@ const getStylish = (tree) => {
     const currentIndent = getIdent(depth);
     const bracketIndent = getBrackeIndent(depth);
     const lines = currentValue.flatMap((node) => {
-      const { key, children, status, value1, value2 } = node;
+      const {
+        key, children, status, value1, value2 } = node;
       switch (status) {
         case 'nested':
           return `${currentIndent}  ${key}: ${iter(children, depth + 1)}`;
