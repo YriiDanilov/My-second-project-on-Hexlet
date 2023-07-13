@@ -7,7 +7,6 @@ const getValue = (value) => {
 
 const getPlain = (data) => {
   const iter = (value, path) => {
-
     const result = value
       .filter((node) => node.status !== 'unchanged')
       .map((node) => {
