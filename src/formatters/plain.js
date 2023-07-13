@@ -8,8 +8,7 @@ const getValue = (value) => {
 const getPlain = (data) => {
   const iter = (value, path) => {
     const result = value
-      .filter((node) => node.status !== 'unchanged')
-      .map((node) => {
+      .flatMap((node) => {
         const {
           key, children, status, value1, value2,
         } = node;
@@ -23,6 +22,8 @@ const getPlain = (data) => {
             return `Property '${fullPath}' was added with value: ${getValue(value2)}`;
           case 'changed':
             return `Property '${fullPath}' was updated. From ${getValue(value1)} to ${getValue(value2)}`;
+          case 'unchanged':
+            return [];
           default:
             throw new Error(`Unknown type: ${status}.`);
         }
