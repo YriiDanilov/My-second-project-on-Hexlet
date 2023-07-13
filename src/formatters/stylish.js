@@ -21,22 +21,23 @@ const getStylish = (tree) => {
     const currentIndent = getIdent(depth);
     const bracketIndent = getBrackeIndent(depth);
     const lines = currentValue.flatMap((node) => {
+      const { key, children, status, value1, value2 } = node;
       switch (node.status) {
         case 'nested':
-          return `${currentIndent}  ${node.key}: ${iter(node.children, depth + 1)}`;
+          return `${currentIndent}  ${key}: ${iter(children, depth + 1)}`;
         case 'deleted':
-          return `${currentIndent}- ${node.key}: ${stringify(node.value1, depth + 1)}`;
+          return `${currentIndent}- ${key}: ${stringify(value1, depth + 1)}`;
         case 'added':
-          return `${currentIndent}+ ${node.key}: ${stringify(node.value2, depth + 1)}`;
+          return `${currentIndent}+ ${key}: ${stringify(value2, depth + 1)}`;
         case 'unchanged':
-          return `${currentIndent}  ${node.key}: ${stringify(node.value1, depth + 1)}`;
+          return `${currentIndent}  ${key}: ${stringify(value1, depth + 1)}`;
         case 'changed':
           return [
-            `${currentIndent}- ${node.key}: ${stringify(node.value1, depth + 1)}`,
-            `${currentIndent}+ ${node.key}: ${stringify(node.value2, depth + 1)}`,
+            `${currentIndent}- ${key}: ${stringify(value1, depth + 1)}`,
+            `${currentIndent}+ ${key}: ${stringify(value2, depth + 1)}`,
           ];
         default:
-          throw new Error(`Unknown type ${node.status}.`);
+          throw new Error(`Unknown type ${status}.`);
       }
     });
     return ['{', ...lines, `${bracketIndent}}`].join('\n');

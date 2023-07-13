@@ -1,11 +1,15 @@
 import YAML from 'yaml';
 
+const parsing = {
+  'json': JSON.parse,
+  'yaml': YAML.parse,
+  'yml': YAML.parse,
+}
+
 export default (filepath, ext) => {
-  switch (ext) {
-    case 'json': return JSON.parse(filepath);
-    case 'yaml': return YAML.parse(filepath);
-    case 'yml': return YAML.parse(filepath);
-    default:
-      throw new Error(`Unknown format ${ext}!`);
+  try {
+    return parsing[ext](filepath);
+  } catch (error) {
+    throw new Error(`Unknown format ${ext}!`);
   }
 };

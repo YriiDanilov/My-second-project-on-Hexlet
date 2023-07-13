@@ -2,27 +2,29 @@ import _ from 'lodash';
 
 const getValue = (value) => {
   if (typeof value === 'string') return `'${value}'`;
-  return _.isObject(value) ? '[complex value]' : value;
+  return _.isObject(value) ? '[complex value]' : String(value);
 };
 
 const getPlain = (data) => {
   const iter = (value, path) => {
+
     const result = value
       .filter((node) => node.status !== 'unchanged')
       .map((node) => {
-        const fullPath = (path === '') ? `${node.key}` : `${path}.${node.key}`;
+        const { key, children, status, value1, value2 } = node;
+        const fullPath = (path === '') ? `${key}` : `${path}.${key}`;
 
-        switch (node.status) {
+        switch (status) {
           case 'nested':
-            return iter(node.children, fullPath);
+            return iter(children, fullPath);
           case 'deleted':
             return `Property '${fullPath}' was removed`;
           case 'added':
-            return `Property '${fullPath}' was added with value: ${getValue(node.value2)}`;
+            return `Property '${fullPath}' was added with value: ${getValue(value2)}`;
           case 'changed':
-            return `Property '${fullPath}' was updated. From ${getValue(node.value1)} to ${getValue(node.value2)}`;
+            return `Property '${fullPath}' was updated. From ${getValue(value1)} to ${getValue(value2)}`;
           default:
-            throw new Error(`Unknown type: ${node.status}.`);
+            throw new Error(`Unknown type: ${status}.`);
         }
       });
     return [...result].join('\n');
