@@ -4,7 +4,7 @@ const parsing = {
   json: JSON.parse,
   yaml: YAML.parse,
   yml: YAML.parse,
-}
+};
 
 export default (filepath, ext) => {
   try {
