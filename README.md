@@ -1,6 +1,9 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/YriiDanilov/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/YriiDanilov/frontend-project-46/actions)
 
+### Node CI:
+[![Actions Status](https://github.com/YriiDanilov/My-second-project-on-Hexlet/actions/workflows/nodejs.yml/badge.svg)](https://github.com/YriiDanilov/frontend-project-46/actions)
+
 ### Maintainability Badge:
 [![Maintainability](https://api.codeclimate.com/v1/badges/34098306c90c24446481/maintainability)](https://codeclimate.com/github/YriiDanilov/frontend-project-46/maintainability)
 
